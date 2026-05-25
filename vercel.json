@@ -2,7 +2,7 @@
   "version": 2,
   "builds": [
     {
-      "src": "api/index.js",
+      "src": "backend/server.js",
       "use": "@vercel/node"
     },
     {
@@ -15,8 +15,32 @@
   ],
   "rewrites": [
     {
+      "source": "/api/(.*)",
+      "destination": "/backend/server.js"
+    },
+    {
+      "source": "/assets/(.*)",
+      "destination": "/frontend/assets/$1"
+    },
+    {
+      "source": "/favicon.ico",
+      "destination": "/frontend/favicon.ico"
+    },
+    {
+      "source": "/logo.svg",
+      "destination": "/frontend/logo.svg"
+    },
+    {
+      "source": "/Profile.png",
+      "destination": "/frontend/Profile.png"
+    },
+    {
+      "source": "/Aditya_Rai_Resume.pdf",
+      "destination": "/frontend/Aditya_Rai_Resume.pdf"
+    },
+    {
       "source": "/(.*)",
-      "destination": "/api"
+      "destination": "/frontend/index.html"
     }
   ]
 }

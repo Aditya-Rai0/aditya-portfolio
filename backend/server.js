@@ -26,7 +26,7 @@ app.use(cors({
   credentials: true,
 }));
 app.use(express.json({ limit: '10mb' }));
-app.use(express.static(path.join(__dirname, '../frontend/dist')));
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 app.use('/api/auth', authRoutes);
 app.use('/api/projects', projectRoutes);
@@ -41,12 +41,6 @@ app.use('/api/seed', seedRoutes);
 
 app.get('/api/health', (req, res) => {
   res.json({ status: 'ok' });
-});
-
-app.get('*', (req, res) => {
-  if (!req.path.startsWith('/api')) {
-    res.sendFile(path.join(__dirname, '../frontend/dist/index.html'));
-  }
 });
 
 async function seedAdmin() {
