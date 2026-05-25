@@ -1,0 +1,10 @@
+{
+  "name": "portfolio",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "cd backend && npm run dev",
+    "build": "cd frontend && npm ci && npm run build",
+    "start": "cd backend && node server.js"
+  }
+}
