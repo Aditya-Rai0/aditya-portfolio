@@ -1,33 +1,6 @@
 import express from 'express';
-import multer from 'multer';
-import path from 'path';
-import { fileURLToPath } from 'url';
 import Profile from '../models/Profile.js';
 import auth from '../middleware/auth.js';
-
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
-
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, path.join(__dirname, '..', 'uploads'));
-  },
-  filename: (req, file, cb) => {
-    const ext = path.extname(file.originalname);
-    cb(null, `${file.fieldname}-${Date.now()}${ext}`);
-  },
-});
-
-const upload = multer({
-  storage,
-  limits: { fileSize: 10 * 1024 * 1024 },
-  fileFilter: (req, file, cb) => {
-    const allowed = /jpeg|jpg|png|gif|pdf/;
-    const extOk = allowed.test(path.extname(file.originalname).toLowerCase());
-    const mimeOk = allowed.test(file.mimetype.split('/')[1]);
-    if (extOk || mimeOk) return cb(null, true);
-    cb(new Error('Only images and PDFs allowed'));
-  },
-});
 
 const router = express.Router();
 
@@ -43,23 +16,9 @@ router.get('/', async (req, res) => {
   }
 });
 
-router.put('/', auth, upload.fields([
-  { name: 'profileImage', maxCount: 1 },
-  { name: 'resume', maxCount: 1 },
-  { name: 'logo', maxCount: 1 },
-]), async (req, res) => {
+router.put('/', auth, async (req, res) => {
   try {
     const updates = { ...req.body };
-
-    if (req.files?.profileImage) {
-      updates.profileImage = `/uploads/${req.files.profileImage[0].filename}`;
-    }
-    if (req.files?.resume) {
-      updates.resumeUrl = `/uploads/${req.files.resume[0].filename}`;
-    }
-    if (req.files?.logo) {
-      updates.logo = `/uploads/${req.files.logo[0].filename}`;
-    }
 
     if (updates.social && typeof updates.social === 'string') {
       updates.social = JSON.parse(updates.social);

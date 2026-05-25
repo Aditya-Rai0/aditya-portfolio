@@ -8,10 +8,6 @@ const FALLBACK = [
   { _id: 'fb5', title: 'Internship Completion', issuer: 'Euron — Marketing', url: 'https://euron.one/internship/verify/completion-letter/68453d2b2b118477c8859774_22448828-2a0e-4286-9189-6e6521bc3084', icon: 'fa-briefcase' },
 ];
 
-const BASE_URL = import.meta.env.VITE_API_URL
-  ? import.meta.env.VITE_API_URL.replace('/api', '')
-  : '';
-
 export default function Certificates({ certificates }) {
   const list = certificates && certificates.length > 0 ? certificates : FALLBACK;
 
@@ -42,7 +38,7 @@ export default function Certificates({ certificates }) {
                     </div>
                   ) : (
                     <img
-                      src={`${BASE_URL}${cert.fileUrl}`}
+                      src={cert.fileUrl}
                       alt={cert.title}
                       className="w-full h-full object-contain p-2"
                       onError={(e) => {

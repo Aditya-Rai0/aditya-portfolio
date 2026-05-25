@@ -122,12 +122,11 @@ export default function Admin() {
               { key: 'issuer', label: 'Issuer' },
               { key: 'url', label: 'External URL (optional)' },
               { key: 'icon', label: 'Icon', options: ['fa-certificate', 'fa-robot', 'fa-cloud-upload-alt', 'fa-chart-bar', 'fa-brain', 'fa-code', 'fa-database', 'fa-shield-alt'] },
-              { key: 'certFile', label: 'Upload Image/PDF', type: 'file' },
-            ]}
+                { key: 'fileUrl', label: 'Image/PDF URL' },
+              ]}
             onCreate={(d) => createCertificate(d)}
             onUpdate={(id, d) => updateCertificate(id, d)}
             onDelete={deleteCertificate}
-            isMultipart={true}
             renderRow={(item) => (
               <span>
                 {item.fileUrl && <img src={item.fileUrl} alt="" className="w-8 h-8 rounded inline-block mr-2 object-cover align-middle" />}
@@ -207,11 +206,9 @@ function parseLinesAndList(d, linesKey, listKey) {
 function ProfileEditor({ profile, onSave }) {
   const [form, setForm] = useState({
     name: '', headline: '', bio: '', email: '', location: '',
+    profileImage: '', resumeUrl: '', logo: '',
     github: '', linkedin: '', youtube: '',
   });
-  const [profileFile, setProfileFile] = useState(null);
-  const [resumeFile, setResumeFile] = useState(null);
-  const [logoFile, setLogoFile] = useState(null);
   const [saving, setSaving] = useState(false);
 
   useEffect(() => {
@@ -219,6 +216,7 @@ function ProfileEditor({ profile, onSave }) {
       setForm({
         name: profile.name || '', headline: profile.headline || '', bio: profile.bio || '',
         email: profile.email || '', location: profile.location || '',
+        profileImage: profile.profileImage || '', resumeUrl: profile.resumeUrl || '', logo: profile.logo || '',
         github: profile.social?.github || '', linkedin: profile.social?.linkedin || '', youtube: profile.social?.youtube || '',
       });
     }
@@ -227,13 +225,13 @@ function ProfileEditor({ profile, onSave }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setSaving(true);
-    const fd = new FormData();
-    Object.entries(form).forEach(([k, v]) => { if (!['github', 'linkedin', 'youtube'].includes(k)) fd.append(k, v); });
-    fd.append('social', JSON.stringify({ github: form.github, linkedin: form.linkedin, youtube: form.youtube }));
-    if (profileFile) fd.append('profileImage', profileFile);
-    if (resumeFile) fd.append('resume', resumeFile);
-    if (logoFile) fd.append('logo', logoFile);
-    try { await updateProfile(fd); onSave(); alert('Profile updated!'); } catch { alert('Failed'); }
+    const payload = {
+      name: form.name, headline: form.headline, bio: form.bio,
+      email: form.email, location: form.location,
+      profileImage: form.profileImage, resumeUrl: form.resumeUrl, logo: form.logo,
+      social: JSON.stringify({ github: form.github, linkedin: form.linkedin, youtube: form.youtube }),
+    };
+    try { await updateProfile(payload); onSave(); alert('Profile updated!'); } catch { alert('Failed'); }
     setSaving(false);
   };
 
@@ -264,19 +262,22 @@ function ProfileEditor({ profile, onSave }) {
       </div>
       <div className="grid md:grid-cols-3 gap-4">
         <div>
-          <label className="text-xs text-gray-500 font-mono">Profile Image</label>
-          <input type="file" accept="image/*" onChange={(e) => setProfileFile(e.target.files[0])}
-            className="w-full text-sm text-gray-400 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:bg-[#00d4ff]/10 file:text-[#00d4ff] hover:file:bg-[#00d4ff]/20" />
+          <label className="text-xs text-gray-500 font-mono">Profile Image URL</label>
+          <input value={form.profileImage} onChange={(e) => setForm({ ...form, profileImage: e.target.value })}
+            placeholder="https://example.com/photo.jpg"
+            className="w-full px-4 py-3 bg-[#1a1a24] border border-white/10 rounded-lg text-sm text-white placeholder-gray-500 focus:outline-none focus:border-[#00d4ff]" />
         </div>
         <div>
-          <label className="text-xs text-gray-500 font-mono">Logo</label>
-          <input type="file" accept="image/*" onChange={(e) => setLogoFile(e.target.files[0])}
-            className="w-full text-sm text-gray-400 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:bg-[#7c3aed]/10 file:text-[#7c3aed] hover:file:bg-[#7c3aed]/20" />
+          <label className="text-xs text-gray-500 font-mono">Logo URL</label>
+          <input value={form.logo} onChange={(e) => setForm({ ...form, logo: e.target.value })}
+            placeholder="https://example.com/logo.svg"
+            className="w-full px-4 py-3 bg-[#1a1a24] border border-white/10 rounded-lg text-sm text-white placeholder-gray-500 focus:outline-none focus:border-[#00d4ff]" />
         </div>
         <div>
-          <label className="text-xs text-gray-500 font-mono">Resume PDF</label>
-          <input type="file" accept=".pdf" onChange={(e) => setResumeFile(e.target.files[0])}
-            className="w-full text-sm text-gray-400 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:bg-[#7c3aed]/10 file:text-[#7c3aed] hover:file:bg-[#7c3aed]/20" />
+          <label className="text-xs text-gray-500 font-mono">Resume URL</label>
+          <input value={form.resumeUrl} onChange={(e) => setForm({ ...form, resumeUrl: e.target.value })}
+            placeholder="https://example.com/resume.pdf"
+            className="w-full px-4 py-3 bg-[#1a1a24] border border-white/10 rounded-lg text-sm text-white placeholder-gray-500 focus:outline-none focus:border-[#00d4ff]" />
         </div>
       </div>
       <div className="flex gap-3">
@@ -352,37 +353,26 @@ function CreatableSelect({ value, onChange, options, placeholder }) {
 }
 
 /* ===== GENERIC CRUD TABLE ===== */
-function CrudTable({ title, items, fields, onCreate, onUpdate, onDelete, renderRow, isMultipart }) {
+function CrudTable({ title, items, fields, onCreate, onUpdate, onDelete, renderRow }) {
   const [editing, setEditing] = useState(null);
   const [form, setForm] = useState({});
   const [delId, setDelId] = useState(null);
-  const [selectedFile, setSelectedFile] = useState(null);
 
-  const resetForm = () => { setForm({}); setEditing(null); setSelectedFile(null); };
+  const resetForm = () => { setForm({}); setEditing(null); };
 
   const initForm = (item) => {
     const f = {};
     fields.forEach((fd) => {
-      if (fd.type === 'file') return;
       const val = item[fd.key];
       if (Array.isArray(val)) f[fd.key] = val.join(fd.hint === 'commaList' ? ', ' : '\n');
       else f[fd.key] = val ?? '';
     });
     setForm(f);
-    setSelectedFile(null);
   };
 
   const handleEdit = (item) => { initForm(item); setEditing(item._id); };
 
-  const buildPayload = () => {
-    if (isMultipart) {
-      const fd = new FormData();
-      Object.entries(form).forEach(([k, v]) => fd.append(k, v));
-      if (selectedFile) fd.append('certFile', selectedFile);
-      return fd;
-    }
-    return form;
-  };
+  const buildPayload = () => form;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -411,10 +401,7 @@ function CrudTable({ title, items, fields, onCreate, onUpdate, onDelete, renderR
           {fields.map((fd) => (
             <div key={fd.key} className={fd.type === 'textarea' ? 'md:col-span-2' : ''}>
               <label className="text-xs text-gray-500 font-mono block mb-1">{fd.label}</label>
-              {fd.type === 'file' ? (
-                <input type="file" accept="image/*,.pdf" onChange={(e) => setSelectedFile(e.target.files[0])}
-                  className="w-full text-sm text-gray-400 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:bg-[#00d4ff]/10 file:text-[#00d4ff] hover:file:bg-[#00d4ff]/20" />
-              ) : fd.type === 'textarea' ? (
+              {fd.type === 'textarea' ? (
                 <textarea rows="3" value={form[fd.key] || ''} onChange={(e) => updateField(fd.key, e.target.value)}
                   className="w-full px-4 py-3 bg-[#1a1a24] border border-white/10 rounded-lg text-sm text-white placeholder-gray-500 focus:outline-none focus:border-[#00d4ff]" />
               ) : fd.creatable || fd.options ? (

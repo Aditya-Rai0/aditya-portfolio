@@ -27,9 +27,7 @@ api.interceptors.response.use(
 );
 
 export const getProfile = () => api.get('/profile');
-export const updateProfile = (formData) => api.put('/profile', formData, {
-  headers: { 'Content-Type': 'multipart/form-data' },
-});
+export const updateProfile = (data) => api.put('/profile', data);
 export const seedProfile = () => api.post('/profile/seed');
 
 export const getProjects = () => api.get('/projects');
@@ -38,12 +36,8 @@ export const updateProject = (id, data) => api.put(`/projects/${id}`, data);
 export const deleteProject = (id) => api.delete(`/projects/${id}`);
 
 export const getCertificates = () => api.get('/certificates');
-export const createCertificate = (formData) => api.post('/certificates', formData, {
-  headers: { 'Content-Type': 'multipart/form-data' },
-});
-export const updateCertificate = (id, formData) => api.put(`/certificates/${id}`, formData, {
-  headers: { 'Content-Type': 'multipart/form-data' },
-});
+export const createCertificate = (data) => api.post('/certificates', data);
+export const updateCertificate = (id, data) => api.put(`/certificates/${id}`, data);
 export const deleteCertificate = (id) => api.delete(`/certificates/${id}`);
 
 export const login = (email, password) => api.post('/auth/login', { email, password });
