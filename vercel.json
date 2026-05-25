@@ -1,10 +1,12 @@
 {
-  "buildCommand": "cd frontend && npm install && npm run build",
-  "outputDirectory": "frontend/dist",
-  "rewrites": [
-    { "source": "/api/(.*)", "destination": "/api" }
-  ],
-  "env": {
-    "NODE_ENV": "production"
+  "experimentalServices": {
+    "frontend": {
+      "root": "frontend",
+      "routePrefix": "/*"
+    },
+    "backend": {
+      "root": "backend",
+      "routePrefix": "/api/*"
+    }
   }
 }
