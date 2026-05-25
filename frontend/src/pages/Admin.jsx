@@ -263,21 +263,33 @@ function ProfileEditor({ profile, onSave }) {
       <div className="grid md:grid-cols-3 gap-4">
         <div>
           <label className="text-xs text-gray-500 font-mono">Profile Image URL</label>
-          <input value={form.profileImage} onChange={(e) => setForm({ ...form, profileImage: e.target.value })}
-            placeholder="https://example.com/photo.jpg"
-            className="w-full px-4 py-3 bg-[#1a1a24] border border-white/10 rounded-lg text-sm text-white placeholder-gray-500 focus:outline-none focus:border-[#00d4ff]" />
+          <div className="flex gap-2">
+            <input value={form.profileImage} onChange={(e) => setForm({ ...form, profileImage: e.target.value })}
+              placeholder="Leave empty for default"
+              className="flex-1 px-4 py-3 bg-[#1a1a24] border border-white/10 rounded-lg text-sm text-white placeholder-gray-500 focus:outline-none focus:border-[#00d4ff]" />
+            {form.profileImage && <button type="button" onClick={() => setForm({ ...form, profileImage: '' })}
+              className="px-3 py-3 bg-white/5 border border-white/10 rounded-lg text-gray-400 hover:text-red-400 text-sm">✕</button>}
+          </div>
         </div>
         <div>
           <label className="text-xs text-gray-500 font-mono">Logo URL</label>
-          <input value={form.logo} onChange={(e) => setForm({ ...form, logo: e.target.value })}
-            placeholder="https://example.com/logo.svg"
-            className="w-full px-4 py-3 bg-[#1a1a24] border border-white/10 rounded-lg text-sm text-white placeholder-gray-500 focus:outline-none focus:border-[#00d4ff]" />
+          <div className="flex gap-2">
+            <input value={form.logo} onChange={(e) => setForm({ ...form, logo: e.target.value })}
+              placeholder="Leave empty for default"
+              className="flex-1 px-4 py-3 bg-[#1a1a24] border border-white/10 rounded-lg text-sm text-white placeholder-gray-500 focus:outline-none focus:border-[#00d4ff]" />
+            {form.logo && <button type="button" onClick={() => setForm({ ...form, logo: '' })}
+              className="px-3 py-3 bg-white/5 border border-white/10 rounded-lg text-gray-400 hover:text-red-400 text-sm">✕</button>}
+          </div>
         </div>
         <div>
           <label className="text-xs text-gray-500 font-mono">Resume URL</label>
-          <input value={form.resumeUrl} onChange={(e) => setForm({ ...form, resumeUrl: e.target.value })}
-            placeholder="https://example.com/resume.pdf"
-            className="w-full px-4 py-3 bg-[#1a1a24] border border-white/10 rounded-lg text-sm text-white placeholder-gray-500 focus:outline-none focus:border-[#00d4ff]" />
+          <div className="flex gap-2">
+            <input value={form.resumeUrl} onChange={(e) => setForm({ ...form, resumeUrl: e.target.value })}
+              placeholder="Leave empty for default"
+              className="flex-1 px-4 py-3 bg-[#1a1a24] border border-white/10 rounded-lg text-sm text-white placeholder-gray-500 focus:outline-none focus:border-[#00d4ff]" />
+            {form.resumeUrl && <button type="button" onClick={() => setForm({ ...form, resumeUrl: '' })}
+              className="px-3 py-3 bg-white/5 border border-white/10 rounded-lg text-gray-400 hover:text-red-400 text-sm">✕</button>}
+          </div>
         </div>
       </div>
       <div className="flex gap-3">

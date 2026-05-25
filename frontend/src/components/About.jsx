@@ -9,7 +9,7 @@ export default function About({ profile }) {
         </div>
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div>
-            <img src={profile?.profileImage || '/Profile.png'} alt="Aditya Rai" className="rounded-2xl border border-white/10 shadow-xl w-full max-w-md mx-auto" />
+            <img src={profile?.profileImage || '/Profile.png'} alt="Aditya Rai" className="rounded-2xl border border-white/10 shadow-xl w-full max-w-md mx-auto" onError={(e) => { e.target.src = '/Profile.png' }} />
           </div>
           <div>
             <h3 className="text-2xl font-bold mb-4">A passionate builder at the intersection of <span className="text-[#00d4ff]">AI</span> and <span className="text-[#7c3aed]">DevOps</span></h3>

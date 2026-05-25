@@ -50,7 +50,7 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
         <Link to="/" className="flex items-center gap-3">
           {logo ? (
-            <img src={logo} alt="Aditya Rai" className="h-10 w-10 rounded-xl object-cover" />
+            <img src={logo} alt="Aditya Rai" className="h-10 w-10 rounded-xl object-cover" onError={() => setLogo(null)} />
           ) : (
             <span className="text-2xl font-bold tracking-tight">
               <span className="text-[#00d4ff]">&lt;</span>

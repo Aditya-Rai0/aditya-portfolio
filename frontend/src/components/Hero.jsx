@@ -88,7 +88,7 @@ export default function Hero({ profile }) {
           <div className="flex-shrink-0">
             <div className="relative">
               <div className="w-64 h-64 sm:w-80 sm:h-80 rounded-full overflow-hidden border-2 border-[#00d4ff]/20 shadow-2xl shadow-[#00d4ff]/10">
-                <img src={profile?.profileImage || '/Profile.png'} alt="Aditya Rai" className="w-full h-full object-cover" />
+                <img src={profile?.profileImage || '/Profile.png'} alt="Aditya Rai" className="w-full h-full object-cover" onError={(e) => { e.target.src = '/Profile.png' }} />
               </div>
               <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-[#7c3aed]/20 rounded-full blur-xl"></div>
               <div className="absolute -top-4 -left-4 w-32 h-32 bg-[#00d4ff]/20 rounded-full blur-xl"></div>
