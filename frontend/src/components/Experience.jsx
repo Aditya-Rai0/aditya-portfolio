@@ -18,7 +18,9 @@ const FALLBACK = [
 const INITIALS = { Euron: 'E' };
 
 export default function Experience({ experiences }) {
-  const list = experiences && experiences.length > 0 ? experiences : FALLBACK;
+  const list = experiences === null ? FALLBACK : experiences;
+
+  if (!list || list.length === 0) return null;
 
   return (
     <section id="experience" className="py-24 bg-[#0d0d15] relative">

@@ -38,7 +38,7 @@ export default function Home() {
         setProfile(null);
         setProjects([]);
         setCertificates([]);
-        setExperiences([]);
+        setExperiences(null);
         setSkills([]);
         setAchievements([]);
       }
