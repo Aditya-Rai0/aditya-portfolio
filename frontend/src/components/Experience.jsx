@@ -1,21 +1,34 @@
 const FALLBACK = [
   {
-    _id: 'fallback-1',
+    _id: 'fallback-2',
     title: 'Marketing Intern',
-    company: 'Euron',
-    companyTag: 'EdTech Platform',
-    startDate: 'Jun 2024',
-    endDate: 'Aug 2024',
+    company: 'Euron (Engagesphere Technology Pvt. Ltd.)',
+    companyTag: 'Remote',
+    startDate: 'Mar 2026',
+    endDate: 'Present',
     highlights: [
-      'Developed and executed marketing strategies to promote Euron\'s educational offerings, driving user engagement.',
-      'Collaborated with cross-functional teams to optimize content and outreach campaigns.',
-      'Gained hands-on experience in digital marketing, analytics, and brand positioning in the EdTech space.',
+      'Executing digital and social media campaigns; creating data-driven content for LinkedIn and Instagram to drive audience engagement and brand awareness.',
+      'Conducting market research on industry trends and competitive positioning; supporting lead generation via email and WhatsApp outreach initiatives.',
     ],
-    tags: ['Digital Marketing', 'Content Strategy', 'Analytics'],
+    tags: ['Digital Marketing', 'Social Media', 'Market Research'],
+  },
+  {
+    _id: 'fallback-1',
+    title: 'AI Developer Intern',
+    company: 'Euron (Engagesphere Technology Pvt. Ltd.)',
+    companyTag: 'Bengaluru, India',
+    startDate: 'Jun 2025',
+    endDate: 'Aug 2025',
+    highlights: [
+      'Built \'CareReply\', a full-stack AI web application using Python, Flask, and Google Gemini API to generate empathetic, professional patient communication for healthcare staff.',
+      'Designed precision prompt engineering to ensure AI-generated responses avoided medical advice while maintaining clinical tone and accuracy.',
+      'Delivered an intuitive single-page UI with HTML/CSS/JavaScript enabling quick review, editing, and one-click copying of AI-generated messages.',
+    ],
+    tags: ['Python', 'Flask', 'Gemini API', 'Prompt Engineering', 'Healthcare AI'],
   },
 ];
 
-const INITIALS = { Euron: 'E' };
+const INITIALS = { E: 'E' };
 
 export default function Experience({ experiences }) {
   const list = experiences === null ? FALLBACK : experiences;

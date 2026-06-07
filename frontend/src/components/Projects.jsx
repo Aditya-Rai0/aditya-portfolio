@@ -43,74 +43,56 @@ export default function Projects({ projects }) {
             <>
               <div className="project-card">
                 <div className="project-card-header">
-                  <i className="fas fa-heartbeat text-3xl text-[#00d4ff]"></i>
-                  <span className="text-xs font-mono text-[#00d4ff] bg-[#00d4ff]/10 px-2 py-1 rounded">Gen AI</span>
+                  <i className="fas fa-shield-alt text-3xl text-[#00d4ff]"></i>
+                  <span className="text-xs font-mono text-[#00d4ff] bg-[#00d4ff]/10 px-2 py-1 rounded">Security AI</span>
                 </div>
-                <h3 className="text-xl font-bold mb-2">AI Medical Bot</h3>
-                <p className="text-gray-400 text-sm mb-4">An AI-powered medical assistant that provides preliminary health insights using LLMs and medical knowledge bases.</p>
+                <h3 className="text-xl font-bold mb-2">National Security Shield</h3>
+                <p className="text-gray-400 text-sm mb-4">AI-powered video threat analysis platform processing 5+ threat categories (terrorism, misinformation, hate speech, espionage, cyber threats) from YouTube videos using speech-to-text, OCR, and multilingual translation.</p>
                 <div className="flex flex-wrap gap-2 mb-4">
-                  <span className="tech-tag">LangChain</span>
-                  <span className="tech-tag">LLMs</span>
-                  <span className="tech-tag">Python</span>
                   <span className="tech-tag">FastAPI</span>
+                  <span className="tech-tag">LangGraph</span>
+                  <span className="tech-tag">Azure AI Search</span>
+                  <span className="tech-tag">Groq Llama-3.3-70B</span>
+                  <span className="tech-tag">HuggingFace</span>
                 </div>
                 <div className="flex gap-3 mt-auto">
-                  <a href="#" className="text-sm text-[#00d4ff] hover:underline"><i className="fab fa-github"></i> Code</a>
-                  <a href="#" className="text-sm text-gray-400 hover:text-white"><i className="fas fa-external-link-alt"></i> Live</a>
+                  <a href="https://github.com/AdityaRai05" target="_blank" rel="noopener noreferrer" className="text-sm text-[#00d4ff] hover:underline"><i className="fab fa-github"></i> Code</a>
                 </div>
               </div>
               <div className="project-card">
                 <div className="project-card-header">
-                  <i className="fas fa-reply-all text-3xl text-[#7c3aed]"></i>
-                  <span className="text-xs font-mono text-[#7c3aed] bg-[#7c3aed]/10 px-2 py-1 rounded">Automation</span>
-                </div>
-                <h3 className="text-xl font-bold mb-2">CareReply AI</h3>
-                <p className="text-gray-400 text-sm mb-4">Intelligent automated response system leveraging AI to draft context-aware replies for customer support.</p>
-                <div className="flex flex-wrap gap-2 mb-4">
-                  <span className="tech-tag">n8n</span>
-                  <span className="tech-tag">NLP</span>
-                  <span className="tech-tag">Python</span>
-                  <span className="tech-tag">GPT</span>
-                </div>
-                <div className="flex gap-3 mt-auto">
-                  <a href="#" className="text-sm text-[#7c3aed] hover:underline"><i className="fab fa-github"></i> Code</a>
-                  <a href="#" className="text-sm text-gray-400 hover:text-white"><i className="fas fa-external-link-alt"></i> Live</a>
-                </div>
-              </div>
-              <div className="project-card">
-                <div className="project-card-header">
-                  <i className="fas fa-graduation-cap text-3xl text-[#00d4ff]"></i>
-                  <span className="text-xs font-mono text-[#00d4ff] bg-[#00d4ff]/10 px-2 py-1 rounded">Web App</span>
+                  <i className="fas fa-graduation-cap text-3xl text-[#7c3aed]"></i>
+                  <span className="text-xs font-mono text-[#7c3aed] bg-[#7c3aed]/10 px-2 py-1 rounded">Career AI</span>
                 </div>
                 <h3 className="text-xl font-bold mb-2">SIET Career Guider</h3>
-                <p className="text-gray-400 text-sm mb-4">A career guidance platform for students at Shambhunath Institute, offering personalized recommendations.</p>
+                <p className="text-gray-400 text-sm mb-4">AI career guidance platform serving personalized roadmaps across 10+ career domains with market trend analysis. Built a RAG-powered chatbot using FAISS vector store for context-aware recommendations.</p>
                 <div className="flex flex-wrap gap-2 mb-4">
-                  <span className="tech-tag">React</span>
-                  <span className="tech-tag">Node.js</span>
-                  <span className="tech-tag">MongoDB</span>
-                  <span className="tech-tag">AI</span>
+                  <span className="tech-tag">Streamlit</span>
+                  <span className="tech-tag">LangChain</span>
+                  <span className="tech-tag">Google Gemini API</span>
+                  <span className="tech-tag">FAISS</span>
+                  <span className="tech-tag">Python</span>
                 </div>
                 <div className="flex gap-3 mt-auto">
-                  <a href="#" className="text-sm text-[#00d4ff] hover:underline"><i className="fab fa-github"></i> Code</a>
-                  <a href="#" className="text-sm text-gray-400 hover:text-white"><i className="fas fa-external-link-alt"></i> Live</a>
+                  <a href="https://github.com/AdityaRai05" target="_blank" rel="noopener noreferrer" className="text-sm text-[#7c3aed] hover:underline"><i className="fab fa-github"></i> Code</a>
                 </div>
               </div>
               <div className="project-card">
                 <div className="project-card-header">
-                  <i className="fas fa-feather-alt text-3xl text-[#7c3aed]"></i>
-                  <span className="text-xs font-mono text-[#7c3aed] bg-[#7c3aed]/10 px-2 py-1 rounded">Creative AI</span>
+                  <i className="fas fa-heartbeat text-3xl text-[#00d4ff]"></i>
+                  <span className="text-xs font-mono text-[#00d4ff] bg-[#00d4ff]/10 px-2 py-1 rounded">Healthcare AI</span>
                 </div>
-                <h3 className="text-xl font-bold mb-2">Create Your Own Story with AI</h3>
-                <p className="text-gray-400 text-sm mb-4">Interactive storytelling platform where users co-create narratives with AI, generating dynamic story branches.</p>
+                <h3 className="text-xl font-bold mb-2">Care Reply - AI Medical Bot</h3>
+                <p className="text-gray-400 text-sm mb-4">End-to-end medical Q&A chatbot using RAG over a PDF knowledge base, achieving context-aware responses across 100+ medical topics. Integrated Pinecone serverless vector DB for sub-second semantic search.</p>
                 <div className="flex flex-wrap gap-2 mb-4">
-                  <span className="tech-tag">LangChain</span>
-                  <span className="tech-tag">GPT</span>
                   <span className="tech-tag">Flask</span>
-                  <span className="tech-tag">HTML/CSS</span>
+                  <span className="tech-tag">LangChain</span>
+                  <span className="tech-tag">Google Gemini Pro</span>
+                  <span className="tech-tag">Pinecone</span>
+                  <span className="tech-tag">Docker</span>
                 </div>
                 <div className="flex gap-3 mt-auto">
-                  <a href="#" className="text-sm text-[#7c3aed] hover:underline"><i className="fab fa-github"></i> Code</a>
-                  <a href="#" className="text-sm text-gray-400 hover:text-white"><i className="fas fa-external-link-alt"></i> Live</a>
+                  <a href="https://github.com/AdityaRai05" target="_blank" rel="noopener noreferrer" className="text-sm text-[#00d4ff] hover:underline"><i className="fab fa-github"></i> Code</a>
                 </div>
               </div>
             </>
