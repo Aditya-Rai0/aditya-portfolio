@@ -12,24 +12,24 @@ export default function About({ profile }) {
             <img src={profile?.profileImage || '/Profile.png'} alt="Aditya Rai" className="rounded-2xl border border-white/10 shadow-xl w-full max-w-md mx-auto" onError={(e) => { e.target.src = '/Profile.png' }} />
           </div>
           <div>
-            <h3 className="text-2xl font-bold mb-4">A passionate builder at the intersection of <span className="text-[#00d4ff]">AI</span> and <span className="text-[#7c3aed]">DevOps</span></h3>
+            <h3 className="text-2xl font-bold mb-4"><span className="text-[#00d4ff]">AI/ML Developer</span> & <span className="text-[#7c3aed]">Generative AI Engineer</span></h3>
             <div className="space-y-4 text-gray-400 leading-relaxed">
               {profile?.bio ? (
                 profile.bio.split('\n').map((p, i) => <p key={i}>{p}</p>)
               ) : (
                 <>
-                  <p>I'm a <strong className="text-white">3rd-year B.Tech Computer Science student</strong> at <strong className="text-white">Shambhunath Institute of Engineering and Technology, Prayagraj</strong>. My journey in tech is driven by an insatiable curiosity for how things work — and how to make them work better.</p>
-                  <p>From building AI-powered chatbots to automating cloud deployments, I thrive on creating solutions that merge <strong className="text-white">intelligence with efficiency</strong>. I specialize in <strong className="text-white">Generative AI, Data Science, and DevOps</strong>, constantly exploring new tools like <strong className="text-white">n8n, LangChain, and cloud platforms</strong> to streamline workflows.</p>
-                  <p>Beyond code, I run <strong className="text-white">Neural Sangam</strong> — a YouTube channel where I break down complex tech concepts and share practical knowledge with the community. I believe in <span className="text-[#00d4ff]">learning in public</span> and empowering others through education.</p>
+                  <p>I'm a <strong className="text-white">Final Year B.Tech Computer Science student</strong> at <strong className="text-white">Shambhunath Institute of Engineering and Technology, Prayagraj</strong>, passionate about building intelligent systems powered by Large Language Models, RAG pipelines, and Generative AI.</p>
+                  <p>I specialize in designing <strong className="text-white">LLM-based applications</strong>, <strong className="text-white">multi-agent pipelines</strong>, and deploying AI solutions with Python and modern API frameworks. My expertise spans <strong className="text-white">Machine Learning, Deep Learning, NLP, Agentic AI, and Generative AI</strong> — with hands-on experience delivering real-world AI solutions across healthcare, security, and career intelligence domains.</p>
+                  <p>Beyond code, I run <strong className="text-white">Neural Sangam</strong> — a YouTube channel where I break down complex AI and tech concepts, sharing practical knowledge with the community. I believe in <span className="text-[#00d4ff]">learning in public</span> and empowering others through education.</p>
                 </>
               )}
             </div>
             <div className="flex flex-wrap gap-3 mt-6">
-              <span className="px-3 py-1 text-xs font-mono bg-[#00d4ff]/10 text-[#00d4ff] border border-[#00d4ff]/20 rounded-full">Python</span>
-              <span className="px-3 py-1 text-xs font-mono bg-[#7c3aed]/10 text-[#7c3aed] border border-[#7c3aed]/20 rounded-full">LangChain</span>
-              <span className="px-3 py-1 text-xs font-mono bg-[#00d4ff]/10 text-[#00d4ff] border border-[#00d4ff]/20 rounded-full">n8n</span>
-              <span className="px-3 py-1 text-xs font-mono bg-[#7c3aed]/10 text-[#7c3aed] border border-[#7c3aed]/20 rounded-full">Docker</span>
-              <span className="px-3 py-1 text-xs font-mono bg-[#00d4ff]/10 text-[#00d4ff] border border-[#00d4ff]/20 rounded-full">Gen AI</span>
+              <span className="px-3 py-1 text-xs font-mono bg-[#00d4ff]/10 text-[#00d4ff] border border-[#00d4ff]/20 rounded-full">Machine Learning</span>
+              <span className="px-3 py-1 text-xs font-mono bg-[#7c3aed]/10 text-[#7c3aed] border border-[#7c3aed]/20 rounded-full">LLMs & RAG</span>
+              <span className="px-3 py-1 text-xs font-mono bg-[#00d4ff]/10 text-[#00d4ff] border border-[#00d4ff]/20 rounded-full">LangChain</span>
+              <span className="px-3 py-1 text-xs font-mono bg-[#7c3aed]/10 text-[#7c3aed] border border-[#7c3aed]/20 rounded-full">Generative AI</span>
+              <span className="px-3 py-1 text-xs font-mono bg-[#00d4ff]/10 text-[#00d4ff] border border-[#00d4ff]/20 rounded-full">Agentic AI</span>
             </div>
           </div>
         </div>

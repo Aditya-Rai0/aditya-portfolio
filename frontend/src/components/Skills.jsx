@@ -1,46 +1,49 @@
 const CATEGORY_META = {
-  'AI / ML & Data Science': { color: '#7c3aed', icon: 'fa-brain' },
-  'GenAI & LLMs': { color: '#00d4ff', icon: 'fa-network-wired' },
-  'Frameworks & APIs': { color: '#7c3aed', icon: 'fa-code' },
-  'DevOps & Tools': { color: '#00d4ff', icon: 'fa-tools' },
+  'AI / ML': { color: '#7c3aed', icon: 'fa-brain' },
+  'Generative AI & LLMs': { color: '#00d4ff', icon: 'fa-network-wired' },
+  'Data Science': { color: '#7c3aed', icon: 'fa-chart-bar' },
+  'Frameworks & Tools': { color: '#00d4ff', icon: 'fa-code' },
 };
 
 const FALLBACK_GROUPS = [
   {
-    _id: 'fg-1', title: 'AI / ML & Data Science', color: '#7c3aed', icon: 'fa-brain',
+    _id: 'fg-1', title: 'AI / ML', color: '#7c3aed', icon: 'fa-brain',
     skills: [
       { name: 'Machine Learning', icon: 'fas fa-robot', iconColor: '#00d4ff', level: 80 },
       { name: 'Deep Learning', icon: 'fas fa-layer-group', iconColor: '#7c3aed', level: 75 },
       { name: 'NLP', icon: 'fas fa-language', iconColor: '#00d4ff', level: 80 },
       { name: 'Agentic AI', icon: 'fas fa-robot', iconColor: '#7c3aed', level: 70 },
-      { name: 'Python', icon: 'fab fa-python', iconColor: '#e6a23c', level: 90 },
     ],
   },
   {
-    _id: 'fg-2', title: 'GenAI & LLMs', color: '#00d4ff', icon: 'fa-network-wired',
+    _id: 'fg-2', title: 'Generative AI & LLMs', color: '#00d4ff', icon: 'fa-network-wired',
     skills: [
+      { name: 'LLMs', icon: 'fas fa-comment-dots', iconColor: '#00d4ff', level: 85 },
+      { name: 'RAG', icon: 'fas fa-database', iconColor: '#7c3aed', level: 85 },
       { name: 'LangChain', icon: 'fas fa-link', iconColor: '#00d4ff', level: 85 },
       { name: 'LangGraph', icon: 'fas fa-project-diagram', iconColor: '#7c3aed', level: 70 },
-      { name: 'RAG', icon: 'fas fa-database', iconColor: '#00d4ff', level: 85 },
-      { name: 'Prompt Engineering', icon: 'fas fa-pen-fancy', iconColor: '#7c3aed', level: 80 },
-      { name: 'FAISS', icon: 'fas fa-search', iconColor: '#00d4ff', level: 75 },
-      { name: 'Pinecone', icon: 'fas fa-database', iconColor: '#7c3aed', level: 75 },
+      { name: 'Prompt Engineering', icon: 'fas fa-pen-fancy', iconColor: '#00d4ff', level: 80 },
+      { name: 'FAISS', icon: 'fas fa-search', iconColor: '#7c3aed', level: 75 },
+      { name: 'Pinecone', icon: 'fas fa-database', iconColor: '#00d4ff', level: 75 },
       { name: 'HuggingFace', icon: 'fas fa-smile', iconColor: '#f9a825', level: 80 },
-      { name: 'Claude (Anthropic)', icon: 'fas fa-comment-dots', iconColor: '#00d4ff', level: 75 },
+      { name: 'Claude (Anthropic)', icon: 'fas fa-comment-dots', iconColor: '#7c3aed', level: 75 },
     ],
   },
   {
-    _id: 'fg-3', title: 'Frameworks & APIs', color: '#7c3aed', icon: 'fa-code',
+    _id: 'fg-3', title: 'Data Science', color: '#7c3aed', icon: 'fa-chart-bar',
+    skills: [
+      { name: 'Python', icon: 'fab fa-python', iconColor: '#e6a23c', level: 90 },
+      { name: 'Data Analysis', icon: 'fas fa-chart-line', iconColor: '#00d4ff', level: 80 },
+      { name: 'Data Visualization', icon: 'fas fa-chart-pie', iconColor: '#7c3aed', level: 75 },
+      { name: 'Statistics', icon: 'fas fa-calculator', iconColor: '#00d4ff', level: 75 },
+    ],
+  },
+  {
+    _id: 'fg-4', title: 'Frameworks & Tools', color: '#00d4ff', icon: 'fa-code',
     skills: [
       { name: 'Flask', icon: 'fas fa-flask', iconColor: '#00d4ff', level: 85 },
       { name: 'FastAPI', icon: 'fas fa-bolt', iconColor: '#7c3aed', level: 80 },
       { name: 'Streamlit', icon: 'fas fa-chart-line', iconColor: '#ff4b4b', level: 80 },
-    ],
-  },
-  {
-    _id: 'fg-4', title: 'DevOps & Tools', color: '#00d4ff', icon: 'fa-tools',
-    skills: [
-      { name: 'Docker', icon: 'fab fa-docker', iconColor: '#2496ed', level: 75 },
       { name: 'Git', icon: 'fab fa-git-alt', iconColor: '#f05133', level: 85 },
       { name: 'GitHub', icon: 'fab fa-github', iconColor: '#ffffff', level: 85 },
     ],
@@ -93,6 +96,6 @@ function buildGroups(skills) {
     map[s.category].skills.push(s);
   });
 
-  const order = ['AI / ML & Data Science', 'GenAI & LLMs', 'Frameworks & APIs', 'DevOps & Tools'];
+  const order = ['AI / ML', 'Generative AI & LLMs', 'Data Science', 'Frameworks & Tools'];
   return order.filter((k) => map[k]).map((k) => map[k]);
 }

@@ -1,11 +1,7 @@
-const ICONS = ['fa-certificate', 'fa-robot', 'fa-cloud-upload-alt', 'fa-chart-bar', 'fa-briefcase'];
-
 const FALLBACK = [
-  { _id: 'fb1', title: 'Python with Data Science', issuer: 'Euron', url: 'https://euron.one/certificate/075db80f-395a-40ac-b4aa-49924dfa7a5f', icon: 'fa-certificate' },
-  { _id: 'fb2', title: 'AI & Machine Learning', issuer: 'Euron', url: 'https://euron.one/certificate/00a4e7af-9609-4cd8-86c9-36619e757161', icon: 'fa-robot' },
-  { _id: 'fb3', title: 'DevOps Fundamentals', issuer: 'Euron', url: 'https://euron.one/certificate/eaf74e2f-829d-4117-8c4d-9ae805e3af63', icon: 'fa-cloud-upload-alt' },
-  { _id: 'fb4', title: 'Data Analytics', issuer: 'Euron', url: 'https://euron.one/certificate/075db80f-395a-40ac-b4aa-49924dfa7a5f', icon: 'fa-chart-bar' },
-  { _id: 'fb5', title: 'Internship Completion', issuer: 'Euron — Marketing', url: 'https://euron.one/internship/verify/completion-letter/68453d2b2b118477c8859774_22448828-2a0e-4286-9189-6e6521bc3084', icon: 'fa-briefcase' },
+  { _id: 'fb1', title: 'Generative AI with NLP, Agentic AI and Fine Tuning', issuer: 'Euron', url: '#', icon: 'fa-robot' },
+  { _id: 'fb2', title: 'Full Stack Data Science', issuer: 'Euron', url: '#', icon: 'fa-chart-bar' },
+  { _id: 'fb3', title: 'Master Statistics', issuer: 'Euron', url: '#', icon: 'fa-calculator' },
 ];
 
 export default function Certificates({ certificates }) {
@@ -53,7 +49,7 @@ export default function Certificates({ certificates }) {
                   </div>
                 </div>
               ) : (
-                <div className="cert-icon"><i className={`fas ${cert.icon || ICONS[i % ICONS.length]}`}></i></div>
+                <div className="cert-icon"><i className={`fas ${cert.icon || 'fa-certificate'}`}></i></div>
               )}
               <h3 className="font-bold mb-1">{cert.title}</h3>
               <p className="text-xs text-gray-500">{cert.issuer}</p>

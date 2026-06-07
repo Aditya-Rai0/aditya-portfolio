@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
 
 const PHRASES = [
-  'Generative AI, Data Science & DevOps Enthusiast',
-  'Building intelligent automation tools',
-  'Sharing knowledge on Neural Sangam',
-  '3rd Year CSE @ SIET Prayagraj',
+  'AI/ML Developer & Generative AI Engineer',
+  'Building LLM-powered applications & RAG pipelines',
+  'Data Science & Agentic AI Enthusiast',
+  'Final Year CSE @ SIET Prayagraj',
 ];
 
 export default function Hero({ profile }) {
@@ -54,14 +54,15 @@ export default function Hero({ profile }) {
             <p className="text-[#00d4ff] font-mono text-sm mb-2 animate-fade-in">
               <span className="text-gray-500">$</span> whoami
             </p>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight mb-4">
-              Hi, I'm <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00d4ff] to-[#7c3aed]">{profile?.name || 'Aditya Rai'}</span>
-            </h1>
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight mb-4">
+                Hi, I'm <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00d4ff] to-[#7c3aed]">{profile?.name || 'Aditya Rai'}</span>
+                <span className="block text-lg sm:text-xl text-gray-400 font-mono mt-2">AI/ML Developer & Generative AI Engineer</span>
+              </h1>
             <div className="text-lg sm:text-xl text-gray-400 font-mono mb-6 h-8">
               <span className="text-[#00d4ff]">$</span> echo <span className="text-white">{text}</span><span className="animate-pulse text-[#00d4ff]">|</span>
             </div>
             <p className="text-gray-400 max-w-lg mx-auto md:mx-0 mb-8 leading-relaxed">
-              {profile?.headline || 'Generative AI, Data Science & DevOps Enthusiast'} — building intelligent tools, automating workflows, and sharing knowledge through <span className="text-[#00d4ff]">Neural Sangam</span>.
+              {profile?.headline || 'AI/ML Developer | Generative AI Engineer | Data Science Enthusiast | LLM Application Builder'} — building intelligent AI systems, LLM-powered applications, RAG pipelines, and sharing knowledge through <span className="text-[#00d4ff]">Neural Sangam</span>.
             </p>
             <div className="flex flex-wrap gap-4 justify-center md:justify-start">
               <a href={profile?.resumeUrl || '/Aditya_Rai_Resume.pdf'} download

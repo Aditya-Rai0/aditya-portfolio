@@ -1,5 +1,19 @@
 const FALLBACK = [
   {
+    _id: 'fallback-1',
+    title: 'AI Developer Intern',
+    company: 'Euron (Engagesphere Technology Pvt. Ltd.)',
+    companyTag: 'Bengaluru, India',
+    startDate: 'Jun 2025',
+    endDate: 'Aug 2025',
+    highlights: [
+      'Built \'CareReply\', a full-stack AI web application using Python, Flask, and Google Gemini API to generate empathetic, professional patient communication for healthcare staff — reducing manual drafting effort significantly.',
+      'Designed precision prompt engineering to ensure AI-generated responses avoided medical advice while maintaining clinical tone and accuracy.',
+      'Delivered an intuitive single-page UI with HTML/CSS/JavaScript enabling quick review, editing, and one-click copying of AI-generated messages.',
+    ],
+    tags: ['Python', 'Flask', 'Gemini API', 'Prompt Engineering', 'Healthcare AI'],
+  },
+  {
     _id: 'fallback-2',
     title: 'Marketing Intern',
     company: 'Euron (Engagesphere Technology Pvt. Ltd.)',
@@ -11,20 +25,6 @@ const FALLBACK = [
       'Conducting market research on industry trends and competitive positioning; supporting lead generation via email and WhatsApp outreach initiatives.',
     ],
     tags: ['Digital Marketing', 'Social Media', 'Market Research'],
-  },
-  {
-    _id: 'fallback-1',
-    title: 'AI Developer Intern',
-    company: 'Euron (Engagesphere Technology Pvt. Ltd.)',
-    companyTag: 'Bengaluru, India',
-    startDate: 'Jun 2025',
-    endDate: 'Aug 2025',
-    highlights: [
-      'Built \'CareReply\', a full-stack AI web application using Python, Flask, and Google Gemini API to generate empathetic, professional patient communication for healthcare staff.',
-      'Designed precision prompt engineering to ensure AI-generated responses avoided medical advice while maintaining clinical tone and accuracy.',
-      'Delivered an intuitive single-page UI with HTML/CSS/JavaScript enabling quick review, editing, and one-click copying of AI-generated messages.',
-    ],
-    tags: ['Python', 'Flask', 'Gemini API', 'Prompt Engineering', 'Healthcare AI'],
   },
 ];
 
